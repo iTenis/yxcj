@@ -15,7 +15,6 @@ import com.ahearts.yx.domain.Cates;
 
 
 public interface CatesMapper {
-//	INSERT INTO `yxtj`.`cates`(`cate_id`, `cate_name`, `cate_desc`) VALUES (1, '精油', '精油系列');
 	@Insert("INSERT INTO cates(cate_id,cate_name,cate_desc) VALUES (#{cateid},#{catename},#{catedesc})")
 	@Options(useGeneratedKeys = true ,keyProperty = "cateid" ,keyColumn = "cate_id")
 	int insert(Cates cates);
@@ -28,16 +27,17 @@ public interface CatesMapper {
 	})
 	List<Cates> getAll();
 	
-	@Select("SELECT * FROM user WHERE id = #{id}")
+	@Select("SELECT * FROM cates WHERE cate_id = #{cateid}")
 	@Results({
-		@Result(column = "create_time",property = "createtime"),
-		@Result(column = "brith_time",property = "brithtime")
+		@Result(column = "cate_id",property = "cateid"),
+		@Result(column = "cate_name",property = "catename"),
+		@Result(column = "cate_desc",property = "catedesc")
 	})
 	Cates findById(int id);
 	
-	@Update("UPDATE user SET name=#{name} WHERE id = #{id}")
-	void update(Cates user);
+	@Update("UPDATE user SET cate_name=#{catename},cate_desc=#{catedesc} WHERE cate_id = #{cateid}")
+	void update(Cates cate);
 	
-	@Delete("DELETE FROM user WHERE id = #{id}")
+	@Delete("DELETE FROM cates WHERE cate_id = #{cateid}")
 	void delete(int id);
 }

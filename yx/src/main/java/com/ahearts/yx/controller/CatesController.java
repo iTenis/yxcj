@@ -1,13 +1,10 @@
 package com.ahearts.yx.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +18,6 @@ public class CatesController {
 	
 	@Autowired
 	private CatesService catesService;
-	
 
 	@GetMapping("/addview")
 	public ModelAndView addview() {
@@ -40,9 +36,28 @@ public class CatesController {
 		return JsonData.buildSuccess(id);
 	}
 	
-	
 	@GetMapping("/api/cates/getall")
 	public Object getAll() {
 		return JsonData.buildSuccess(catesService.getAll());
+	}
+	
+	@GetMapping("/api/cates/getbyid")
+	public Object getById(int id) {
+		return JsonData.buildSuccess(catesService.getById(id));
+	}
+	
+	@GetMapping("/api/cates/delbyid")
+	public Object delById(int id) {
+		catesService.deleteById(id);
+		return JsonData.buildSuccess();
+	}
+	
+	@PostMapping("/api/cates/update")
+	public Object update(HttpServletRequest request) {
+		Cates cate = catesService.getById(Integer.parseInt(request.getParameter("id")));		
+		cate.setCatename(request.getParameter("name"));
+		cate.setCatedesc(request.getParameter("desc"));
+		catesService.updateById(cate);
+		return JsonData.buildSuccess();
 	}
 }

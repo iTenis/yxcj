@@ -29,19 +29,18 @@ public class CatesServiceImpl implements CatesService{
 
 	@Override
 	public Cates getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Cates cates = catesMapper.findById(id);
+		return cates;
 	}
 
 	@Override
 	public void updateById(Cates cates) {
-		// TODO Auto-generated method stub
-		
+		catesMapper.update(cates);
 	}
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
+		catesMapper.delete(id);
 		
 	}
 
