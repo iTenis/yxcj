@@ -16,4 +16,8 @@ public interface GoodsService {
 	public void updateById(Goods goods);
 	
 	public void deleteById(int id);
+	
+	public int total();
+	
+	List<Goods> pageNext(int currentpage , int pagesize);
 }

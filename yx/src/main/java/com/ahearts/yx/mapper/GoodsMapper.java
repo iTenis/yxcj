@@ -33,7 +33,7 @@ public interface GoodsMapper {
 	})
 	
 	@Select("SELECT * FROM goods where id=#{id}")
-	Goods findById();
+	Goods findById(int id);
 	@Results({
 		@Result(column = "goods_id",property = "goodsid"),
 		@Result(column = "goods_name",property = "goodsname"),
@@ -52,4 +52,11 @@ public interface GoodsMapper {
 	
 	@Delete("DELETE FROM goods WHERE id = #{id}")
 	void deleteById(int id);
+	
+	@Select("SELECT count(1) FROM goods")
+	int total();
+	
+	@Select("SELECT * FROM goods LIMIT #{currentpage},#{pagesize}")
+	List<Goods> pageNext(int currentpage , int pagesize);
+	
 }
