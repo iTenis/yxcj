@@ -64,6 +64,20 @@ public interface GoodsMapper {
 	int total();
 	
 	@Select("SELECT * FROM goods LIMIT #{currentpage},#{pagesize}")
+	@Results({
+		@Result(column = "goods_id",property = "goodsid"),
+		@Result(column = "goods_name",property = "goodsname"),
+		@Result(column = "goods_size",property = "goodssize"),
+		@Result(column = "goods_cover",property = "goodscover"),
+		@Result(column = "goods_num",property = "goodsnum"),
+		@Result(column = "goods_price",property = "goodsprice"),
+		@Result(column = "goods_desc",property = "goodsdesc"),
+		@Result(column = "goods_preview",property = "goodspreview"),
+		@Result(column = "goods_istop",property = "goodsistop"),	
+		@Result(column = "goods_isnew",property = "goodsisnew"),
+		@Result(column = "goods_discount",property = "goodsdiscount"),
+		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER))
+	})
 	List<Goods> pageNext(int currentpage , int pagesize);
 	
 }
