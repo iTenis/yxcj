@@ -13,7 +13,10 @@ public class Goods {
 	private String goodsdesc;
 	private String goodspreview;
 	private int goodsistop;
-	private int goodscateid;
+	private Cates cates;
+	private float goodsdiscount;
+	private int goodsisnew;
+	
 	public int getId() {
 		return id;
 	}
@@ -74,27 +77,23 @@ public class Goods {
 	public void setGoodsistop(int goodsistop) {
 		this.goodsistop = goodsistop;
 	}
-	public int getGoodscateid() {
-		return goodscateid;
+	public Cates getCates() {
+		return cates;
 	}
-	public void setGoodscateid(int goodscateid) {
-		this.goodscateid = goodscateid;
+	public void setCates(Cates cates) {
+		this.cates = cates;
 	}
-	public Goods(int id, String goodsid, String goodsname, String goodssize, String goodscover, int goodsnum,
-			BigDecimal goodsprice, String goodsdesc, String goodspreview, int goodsistop, int goodscateid) {
-		super();
-		this.id = id;
-		this.goodsid = goodsid;
-		this.goodsname = goodsname;
-		this.goodssize = goodssize;
-		this.goodscover = goodscover;
-		this.goodsnum = goodsnum;
-		this.goodsprice = goodsprice;
-		this.goodsdesc = goodsdesc;
-		this.goodspreview = goodspreview;
-		this.goodsistop = goodsistop;
-		this.goodscateid = goodscateid;
+	public float getGoodsdiscount() {
+		return goodsdiscount;
 	}
-	
-	
+	public void setGoodsdiscount(float goodsdiscount) {
+		this.goodsdiscount = goodsdiscount;
+	}
+	public int getGoodsisnew() {
+		return goodsisnew;
+	}
+	public void setGoodsisnew(int goodsisnew) {
+		this.goodsisnew = goodsisnew;
+	}
+
 }

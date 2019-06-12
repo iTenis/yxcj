@@ -22,14 +22,14 @@ public class Cates {
 	public void setCatedesc(String catedesc) {
 		this.catedesc = catedesc;
 	}
-	public Cates(int cateid, String catename, String catedesc) {
-		super();
-		this.cateid = cateid;
-		this.catename = catename;
-		this.catedesc = catedesc;
-	}
-	public Cates() {
-		
-	}
+//	public Cates(int cateid, String catename, String catedesc) {
+//		super();
+//		this.cateid = cateid;
+//		this.catename = catename;
+//		this.catedesc = catedesc;
+//	}
+//	public Cates() {
+//		
+//	}
 	
 }

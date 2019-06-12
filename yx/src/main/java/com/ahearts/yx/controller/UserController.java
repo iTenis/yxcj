@@ -7,9 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
-	
-	@GetMapping("/index")
-	public String home() {
-		return "blank";
-	}
+//	
+//	@GetMapping("/index")
+//	public String home() {
+//		return "blank";
+//	}
 }

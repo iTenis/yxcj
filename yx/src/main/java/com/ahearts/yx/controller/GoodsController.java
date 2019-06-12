@@ -3,6 +3,7 @@ package com.ahearts.yx.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.unit.DataSize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +21,11 @@ public class GoodsController {
 	
 	@GetMapping("/api/goods/getall")
 	public Object getAll() {
-		return JsonData.buildSuccess(goodsService.getAll());
+		return goodsService.getAll();
 	}
 	
 	@RequestMapping("/api/goods/getbyid")
-	public Object getByid(int id) {					
+	public Object getByid(int id) {
 		return JsonData.buildSuccess(goodsService.getById(id));
 	}
 	
