@@ -20,4 +20,10 @@ public interface GoodsService {
 	public int total();
 	
 	List<Goods> pageNext(int currentpage , int pagesize);
+	
+	List<Goods> getGoodsWithCatesNum(int num , int cateid);
+	
+	List<Goods> getGoodsTopN(int topN);
+	
+	List<Goods> getGoodsHotTopN(int topN);
 }

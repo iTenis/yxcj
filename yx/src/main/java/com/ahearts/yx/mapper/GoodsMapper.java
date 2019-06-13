@@ -98,4 +98,75 @@ public interface GoodsMapper {
 	})
 	List<Goods> pageNext(int currentpage , int pagesize);
 	
+	
+	@Select("SELECT * FROM goods where goods_cate_id = #{cateid} ORDER BY goods_updatetime DESC LIMIT #{num}")
+	@Results({
+		@Result(column = "goods_id",property = "goodsid"),
+		@Result(column = "goods_name",property = "goodsname"),
+		@Result(column = "goods_size",property = "goodssize"),
+		@Result(column = "goods_cover",property = "goodscover"),
+		@Result(column = "goods_num",property = "goodsnum"),
+		@Result(column = "goods_price",property = "goodsprice"),
+		@Result(column = "goods_desc",property = "goodsdesc"),
+		@Result(column = "goods_preview",property = "goodspreview"),
+		@Result(column = "goods_istop",property = "goodsistop"),	
+		@Result(column = "goods_isnew",property = "goodsisnew"),
+		@Result(column = "goods_discount",property = "goodsdiscount"),
+		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER)),
+		@Result(column = "goods_details",property = "goodsdetails"),
+		@Result(column = "goods_isdelete",property = "goodsisdelete"),
+		@Result(column = "goods_addtime",property = "goodsaddtime"),
+		@Result(column = "goods_updatetime",property = "goodsupdatetime"),
+		@Result(column = "goods_level",property = "goodslevel"),
+		@Result(column = "goods_goodnum",property = "goodsgoodnum")
+	})
+	List<Goods> getGoodsWithCatesNum(int num , int cateid);
+	
+	
+	@Select("SELECT * FROM goods where goods_istop = 1 LIMIT #{topN}")
+	@Results({
+		@Result(column = "goods_id",property = "goodsid"),
+		@Result(column = "goods_name",property = "goodsname"),
+		@Result(column = "goods_size",property = "goodssize"),
+		@Result(column = "goods_cover",property = "goodscover"),
+		@Result(column = "goods_num",property = "goodsnum"),
+		@Result(column = "goods_price",property = "goodsprice"),
+		@Result(column = "goods_desc",property = "goodsdesc"),
+		@Result(column = "goods_preview",property = "goodspreview"),
+		@Result(column = "goods_istop",property = "goodsistop"),	
+		@Result(column = "goods_isnew",property = "goodsisnew"),
+		@Result(column = "goods_discount",property = "goodsdiscount"),
+		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER)),
+		@Result(column = "goods_details",property = "goodsdetails"),
+		@Result(column = "goods_isdelete",property = "goodsisdelete"),
+		@Result(column = "goods_addtime",property = "goodsaddtime"),
+		@Result(column = "goods_updatetime",property = "goodsupdatetime"),
+		@Result(column = "goods_level",property = "goodslevel"),
+		@Result(column = "goods_goodnum",property = "goodsgoodnum")
+	})
+	List<Goods> getGoodsTopN(int topN);
+	
+	@Select("SELECT * FROM goods ORDER BY goods_goodnum LIMIT #{topN}")
+	@Results({
+		@Result(column = "goods_id",property = "goodsid"),
+		@Result(column = "goods_name",property = "goodsname"),
+		@Result(column = "goods_size",property = "goodssize"),
+		@Result(column = "goods_cover",property = "goodscover"),
+		@Result(column = "goods_num",property = "goodsnum"),
+		@Result(column = "goods_price",property = "goodsprice"),
+		@Result(column = "goods_desc",property = "goodsdesc"),
+		@Result(column = "goods_preview",property = "goodspreview"),
+		@Result(column = "goods_istop",property = "goodsistop"),	
+		@Result(column = "goods_isnew",property = "goodsisnew"),
+		@Result(column = "goods_discount",property = "goodsdiscount"),
+		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER)),
+		@Result(column = "goods_details",property = "goodsdetails"),
+		@Result(column = "goods_isdelete",property = "goodsisdelete"),
+		@Result(column = "goods_addtime",property = "goodsaddtime"),
+		@Result(column = "goods_updatetime",property = "goodsupdatetime"),
+		@Result(column = "goods_level",property = "goodslevel"),
+		@Result(column = "goods_goodnum",property = "goodsgoodnum")
+	})
+	List<Goods> getGoodsHotTopN(int topN);
+	
 }

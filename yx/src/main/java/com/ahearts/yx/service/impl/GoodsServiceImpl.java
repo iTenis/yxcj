@@ -23,14 +23,12 @@ public class GoodsServiceImpl implements GoodsService{
 
 	@Override
 	public List<Goods> getAll() {
-		List<Goods> goods = goodsMapper.getAll();
-		return goods;
+		return goodsMapper.getAll();
 	}
 
 	@Override
 	public Goods getById(int id) {
-		Goods goods = goodsMapper.findById(id);
-		return goods;
+		return goodsMapper.findById(id);
 	}
 
 	@Override
@@ -51,8 +49,22 @@ public class GoodsServiceImpl implements GoodsService{
 
 	@Override
 	public List<Goods> pageNext(int currentpage, int pagesize) {
-		List<Goods> goods = goodsMapper.pageNext(currentpage, pagesize);
-		return goods;
+		return goodsMapper.pageNext(currentpage, pagesize);
+	}
+
+	@Override
+	public List<Goods> getGoodsWithCatesNum(int num, int cateid) {
+		return goodsMapper.getGoodsWithCatesNum(num, cateid);
+	}
+
+	@Override
+	public List<Goods> getGoodsTopN(int topN) {
+		return goodsMapper.getGoodsTopN(topN);
+	}
+
+	@Override
+	public List<Goods> getGoodsHotTopN(int topN) {
+		return goodsMapper.getGoodsHotTopN(topN);
 	}
 
 }

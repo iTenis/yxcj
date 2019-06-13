@@ -7,14 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ahearts.yx.service.CommentsService;
+import com.ahearts.yx.service.GoodsService;
 import com.ahearts.yx.util.JsonData;
 
-@Controller
+@RestController
 public class UserController {
 
+	@Autowired
+	private GoodsService goodsService;
 
 	@GetMapping("/test")
-	public String home() {
-		return "test";
+	public Object home(int num,int cateid) {
+		return JsonData.buildSuccess(goodsService.getGoodsWithCatesNum(num, cateid));
 	}
 }

@@ -31,6 +31,7 @@ public class ProductController {
 		model.addAttribute("goods",goods);
 		model.addAttribute("previewpics",preview_pics);
 		model.addAttribute("comments",comments);
+		model.addAttribute("goodsmore", goodsService.getGoodsWithCatesNum(4, goods.getCates().getCateid()));
 		return "product";
 	}
 }

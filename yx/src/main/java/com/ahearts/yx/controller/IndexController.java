@@ -14,14 +14,10 @@ public class IndexController {
 	@Autowired
 	private GoodsService goodsService;
 	
-	@Autowired
-	private CatesService catesService;
-	
 	@GetMapping("/index")
 	public String Index(Model model) {
-		model.addAttribute("goodshot", goodsService.getAll());
-		model.addAttribute("goodstj", goodsService.getAll());
-		model.addAttribute("catesmenu",catesService.getAll());
+		model.addAttribute("goodshot", goodsService.getGoodsHotTopN(10));
+		model.addAttribute("goodstj", goodsService.getGoodsTopN(10));
 		return "index";
 	}
 	

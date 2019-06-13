@@ -16,7 +16,7 @@ public interface CommentsMapper {
 	@Options(useGeneratedKeys = true ,keyProperty = "id" ,keyColumn = "id")
 	int insert(Comments comments);	
 	
-	@Select("SELECT * FROM comments WHERE comment_goodsid = #{id}")
+	@Select("SELECT * FROM comments WHERE comment_goodsid = #{id} ORDER BY comment_time DESC")
 	@Results({
 		@Result(column = "comment_userid",property = "commentuserid"),
 		@Result(column = "comment_time",property = "commenttime"),
