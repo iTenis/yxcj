@@ -225,12 +225,14 @@
 													</li>
 												</ul>
 												<ul class="reviews-pagination">
-													<li class="active">1</li>
-													<li><a href="#">2</a></li>
-													<li><a href="#">3</a></li>
-													<li><a href="#">4</a></li>
-													<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-												</ul>
+													<li th:if="${currentpage-1>=1}"><a th:href="'/product?currentpage='+${currentpage-1}+'&pagesize='+${pagesize}+'&id='+${goodsid}"><i class="fa fa-angle-left"></i></a></li>
+								<li th:if="${currentpage-2>=1}"><a th:href="'/product?currentpage='+${currentpage-2}+'&pagesize='+${pagesize}+'&id='+${goodsid}">[[${currentpage-2}]]</a></li>
+								<li th:if="${currentpage-1>=1}"><a th:href="'/product?currentpage='+${currentpage-1}+'&pagesize='+${pagesize}+'&id='+${goodsid}">[[${currentpage-1}]]</a></li>
+								<li class="active">[[${currentpage}]]</li>
+								<li th:if="${currentpage+1<=totalpage}"><a th:href="'/product?currentpage='+${currentpage+1}+'&pagesize='+${pagesize}+'&id='+${goodsid}">[[${currentpage+1}]]</a></li>
+								<li th:if="${currentpage+2<=totalpage}"><a th:href="'/product?currentpage='+${currentpage+2}+'&pagesize='+${pagesize}+'&id='+${goodsid}">[[${currentpage+2}]]</a></li>
+								<li th:if="${currentpage+1<=totalpage}"><a th:href="'/product?currentpage='+${currentpage+1}+'&pagesize='+${pagesize}+'&id='+${goodsid}"><i class="fa fa-angle-right"></i></a></li>
+							</ul>
 											</div>
 										</div>
 										<!-- /Reviews -->

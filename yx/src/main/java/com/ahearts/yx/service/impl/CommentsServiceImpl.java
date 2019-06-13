@@ -27,4 +27,14 @@ public class CommentsServiceImpl implements CommentsService{
 		return comments;
 	}
 
+	@Override
+	public int total() {
+		return commentsMapper.total();
+	}
+
+	@Override
+	public List<Comments> pageNext(int id,int currentpage, int pagesize) {
+		return commentsMapper.pageNext(id,currentpage, pagesize);
+	}
+
 }

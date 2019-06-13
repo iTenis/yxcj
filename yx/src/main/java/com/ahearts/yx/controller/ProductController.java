@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ahearts.yx.domain.Comments;
 import com.ahearts.yx.domain.Goods;
@@ -23,11 +22,20 @@ public class ProductController {
 	private CommentsService commentsService;
 	
 	@GetMapping("/product")
-	public String product(Model model,int id) {	
+	public String product(Model model,int id,int currentpage,int pagesize) {	
 		Goods goods = goodsService.getById(id);
 		String[] preview_pics = goods.getGoodspreview().split(";");
 		System.out.println("------------------------"+goods.getId());
-		List<Comments> comments = commentsService.getByGoodsId(goods.getId());
+		List<Comments> comments = commentsService.pageNext(goods.getId(), pagesize * (currentpage - 1 ), pagesize);
+		
+		int commentstotal = comments.size()+1;
+		model.addAttribute("goodsid", goods.getId());
+		model.addAttribute("commentstotoal",commentstotal);
+		model.addAttribute("currentpage", currentpage);
+		model.addAttribute("pagesize", pagesize);
+		model.addAttribute("totalpage", commentstotal/pagesize);
+		
+		
 		model.addAttribute("goods",goods);
 		model.addAttribute("previewpics",preview_pics);
 		model.addAttribute("comments",comments);

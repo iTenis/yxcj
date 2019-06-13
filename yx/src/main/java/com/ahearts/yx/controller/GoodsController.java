@@ -52,7 +52,7 @@ public class GoodsController {
 	 */
 	@GetMapping("/api/goods/page")
 	public Object totoal(int currentpage , int pagesize) {
-		List<Goods > goods = goodsService.pageNext(pagesize * (currentpage - 1 ), pagesize);
+		List<Goods > goods = goodsService.pageNext(currentpage, pagesize);
 		return JsonData.buildSuccess(0, goods, "success", currentpage, pagesize, goodsService.total());
 	}
 }
