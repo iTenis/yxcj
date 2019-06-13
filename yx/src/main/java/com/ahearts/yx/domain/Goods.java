@@ -1,6 +1,7 @@
 package com.ahearts.yx.domain;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 public class Goods {
 	private int id;
@@ -16,6 +17,12 @@ public class Goods {
 	private Cates cates;
 	private float goodsdiscount;
 	private int goodsisnew;
+	private String goodsdetails;
+	private int goodsisdelete;
+	private Timestamp goodsaddtime;
+	private Timestamp goodsupdatetime;
+	private int goodslevel;
+	private int goodsgoodnum;
 	
 	public int getId() {
 		return id;
@@ -95,5 +102,40 @@ public class Goods {
 	public void setGoodsisnew(int goodsisnew) {
 		this.goodsisnew = goodsisnew;
 	}
-
+	public String getGoodsdetails() {
+		return goodsdetails;
+	}
+	public void setGoodsdetails(String goodsdetails) {
+		this.goodsdetails = goodsdetails;
+	}
+	public int getGoodsisdelete() {
+		return goodsisdelete;
+	}
+	public void setGoodsisdelete(int goodsisdelete) {
+		this.goodsisdelete = goodsisdelete;
+	}
+	public Timestamp getGoodsaddtime() {
+		return goodsaddtime;
+	}
+	public void setGoodsaddtime(Timestamp goodsaddtime) {
+		this.goodsaddtime = goodsaddtime;
+	}
+	public Timestamp getGoodsupdatetime() {
+		return goodsupdatetime;
+	}
+	public void setGoodsupdatetime(Timestamp goodsupdatetime) {
+		this.goodsupdatetime = goodsupdatetime;
+	}
+	public int getGoodslevel() {
+		return goodslevel;
+	}
+	public void setGoodslevel(int goodslevel) {
+		this.goodslevel = goodslevel;
+	}
+	public int getGoodsgoodnum() {
+		return goodsgoodnum;
+	}
+	public void setGoodsgoodnum(int goodsgoodnum) {
+		this.goodsgoodnum = goodsgoodnum;
+	}	
 }

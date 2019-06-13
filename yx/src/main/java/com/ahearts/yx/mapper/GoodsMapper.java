@@ -15,7 +15,7 @@ import org.apache.ibatis.mapping.FetchType;
 import com.ahearts.yx.domain.Goods;
 
 public interface GoodsMapper {
-	@Insert("INSERT INTO goods(id, goods_id, goods_name, goods_size, goods_cover, goods_num, goods_price, goods_desc, goods_preview, goods_istop, goods_cate_id,goods_isnew,goods_discunt) VALUES (#{id}, #{goodsid}, #{goodsname}, #{goodssize}, #{goodscover}, #{goodsnum}, #{goodsprice}, #{goodsdesc}, #{goodspreview}, #{goodsistop}, #{goodscateid},#{goodsisnew},#{goodsdiscount})")
+	@Insert("INSERT INTO goods(id, goods_id, goods_name, goods_size, goods_cover, goods_num, goods_price, goods_desc, goods_preview, goods_istop, goods_cate_id,goods_isnew,goods_discunt,goods_details,goods_isdelete,goods_addtime,goods_updatetime,goods_level,goods_goodnum) VALUES (#{id}, #{goodsid}, #{goodsname}, #{goodssize}, #{goodscover}, #{goodsnum}, #{goodsprice}, #{goodsdesc}, #{goodspreview}, #{goodsistop}, #{goodscateid},#{goodsisnew},#{goodsdiscount},#{goodsdetails},#{goodsisdelete},#{goodsaddtime},#{goodsupdatetime},#{goodslevel},#{goodsgoodnum})")
 	@Options(useGeneratedKeys = true ,keyProperty = "id" ,keyColumn = "id")
 	int insert(Goods goods);
 	
@@ -32,7 +32,13 @@ public interface GoodsMapper {
 		@Result(column = "goods_istop",property = "goodsistop"),	
 		@Result(column = "goods_isnew",property = "goodsisnew"),
 		@Result(column = "goods_discount",property = "goodsdiscount"),
-		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER))
+		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER)),
+		@Result(column = "goods_details",property = "goodsdetails"),
+		@Result(column = "goods_isdelete",property = "goodsisdelete"),
+		@Result(column = "goods_addtime",property = "goodsaddtime"),
+		@Result(column = "goods_updatetime",property = "goodsupdatetime"),
+		@Result(column = "goods_level",property = "goodslevel"),
+		@Result(column = "goods_goodnum",property = "goodsgoodnum")
 	})
 	List<Goods> getAll();
 
@@ -49,7 +55,13 @@ public interface GoodsMapper {
 		@Result(column = "goods_istop",property = "goodsistop"),	
 		@Result(column = "goods_isnew",property = "goodsisnew"),
 		@Result(column = "goods_discount",property = "goodsdiscount"),
-		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER))
+		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER)),
+		@Result(column = "goods_details",property = "goodsdetails"),
+		@Result(column = "goods_isdelete",property = "goodsisdelete"),
+		@Result(column = "goods_addtime",property = "goodsaddtime"),
+		@Result(column = "goods_updatetime",property = "goodsupdatetime"),
+		@Result(column = "goods_level",property = "goodslevel"),
+		@Result(column = "goods_goodnum",property = "goodsgoodnum")
 	})
 	Goods findById(int id);
 	
@@ -76,7 +88,13 @@ public interface GoodsMapper {
 		@Result(column = "goods_istop",property = "goodsistop"),	
 		@Result(column = "goods_isnew",property = "goodsisnew"),
 		@Result(column = "goods_discount",property = "goodsdiscount"),
-		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER))
+		@Result(column = "goods_cate_id",property = "cates",one = @One(select = "com.ahearts.yx.mapper.CatesMapper.findById",fetchType=FetchType.EAGER)),
+		@Result(column = "goods_details",property = "goodsdetails"),
+		@Result(column = "goods_isdelete",property = "goodsisdelete"),
+		@Result(column = "goods_addtime",property = "goodsaddtime"),
+		@Result(column = "goods_updatetime",property = "goodsupdatetime"),
+		@Result(column = "goods_level",property = "goodslevel"),
+		@Result(column = "goods_goodnum",property = "goodsgoodnum")
 	})
 	List<Goods> pageNext(int currentpage , int pagesize);
 	
