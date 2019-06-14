@@ -52,6 +52,23 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- 这个包是用户参数转成JSON用的 -->
+<dependency>
+   <groupId>com.alibaba</groupId>
+   <artifactId>fastjson</artifactId>
+   <version>1.2.33</version>
+</dependency>
+<!-- 简化代码插件的包，记得要在idea安装 lombok的插件哦 -->
+<dependency>
+  <groupId>org.projectlombok</groupId>
+   <artifactId>lombok</artifactId>
+</dependency>
+		<!-- 支付寶sdk -->
+		<dependency>    
+			<groupId>com.alipay.sdk</groupId>
+		 	<artifactId>alipay-sdk-java</artifactId>
+		 	<version>3.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

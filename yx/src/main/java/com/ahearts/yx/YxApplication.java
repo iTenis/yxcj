@@ -9,8 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class YxApplication {
 
 	public static void main(String[] args) {
-		
-		SpringApplication.run(YxApplication.class, args);
+		SpringApplication application = new SpringApplication(YxApplication.class);
+        application.addListeners(new PropertiesConfig());
+        application.run(args);
 	}
 
 }

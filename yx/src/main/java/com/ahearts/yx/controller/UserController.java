@@ -10,14 +10,14 @@ import com.ahearts.yx.service.CommentsService;
 import com.ahearts.yx.service.GoodsService;
 import com.ahearts.yx.util.JsonData;
 
-@RestController
+@Controller
 public class UserController {
 
 	@Autowired
 	private GoodsService goodsService;
 
 	@GetMapping("/test")
-	public Object home(int num,int cateid) {
-		return JsonData.buildSuccess(goodsService.getGoodsWithCatesNum(num, cateid));
+	public Object home() {
+		return "test";
 	}
 }
