@@ -2,6 +2,7 @@
  * 
  */
 $(function() {
+//	getPageNext();
 	timecountdown();
 });
 
@@ -20,6 +21,35 @@ function timecountdown(){
 	$("#thours").html(parseInt(hour));
 	$("#tmins").html(parseInt(min));
 	$("#tsecs").html(parseInt(afterMin));
+	var t1 = window.setInterval(timecountdown,1000);
 }
-var t1 = window.setInterval(timecountdown,1000);
 
+//function getPageNext(){
+//	//定义变量sendData
+//	var sendData ={id:"1",currentpage:"2",pagesize:"5"};
+//	var html_str="";
+//	$.ajax({
+//		url:'/api/comments/getbyid',
+//		type:'post',
+//		dataType:'json',
+//		contentType:"application/json",
+//		async:true,//异步请求
+//		cache:false,
+//		data:JSON.stringify(sendData),//使用变量sendData
+//		//执行成功的回调函数
+//		success:function(data) {
+//			console.log(data);
+//			var currentpage = data.currentpage;
+//			var totalnum =  data.totalnum;
+//			var pagesize = data.pagesize;
+//			html_str = html_str + '<li><a href="#"><i class="fa fa-angle-left"></i></a></li>';
+//			html_str = html_str + '<li class="active">'+data.currentpage+'</li>';
+//			html_str = html_str + '<li><a href="#"><i class="fa fa-angle-right"></i></a></li>';
+//			$("#pagination_index").html(html_str);
+//		},
+//		//执行失败或错误的回调函数
+//		error:function(data) {
+//			console.log(data);
+//		}
+//	});
+//}

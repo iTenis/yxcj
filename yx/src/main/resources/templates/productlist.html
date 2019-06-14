@@ -62,7 +62,7 @@
 								</div>
 								<div class="product-body">
 									<p class="product-category" th:text=${goods.cates.catename}></p>
-									<h3 class="product-name"><a th:href="'/product?id='+${goods.id}" th:text=${goods.goodsname}></a></h3>
+									<h3 class="product-name"><a th:href="'/product?currentpage=1&pagesize=10&id='+${goods.id}" th:text=${goods.goodsname}></a></h3>
 									<h4 class="product-price">[[${#numbers.formatDecimal(goods.goodsprice,1,0)}]] <del class="product-old-price" th:text=${#numbers.formatDecimal(goods.goodsprice*(1-goods.goodsdiscount/100),1,0)}>$990.00</del></h4>
 								</div>
 							</div>
@@ -113,7 +113,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category" th:text=${goods.cates.catename}>Category</p>
-												<h3 class="product-name"><a th:href="'/product?id='+${goods.id}" th:text=${goods.goodsname}>product name goes here</a></h3>
+												<h3 class="product-name"><a th:href="'/product?currentpage=1&pagesize=10&id='+${goods.id}" th:text=${goods.goodsname}>product name goes here</a></h3>
 												<h4 class="product-price">[[${#numbers.formatDecimal(goods.goodsprice,1,0)}]] <del class="product-old-price" th:text=${#numbers.formatDecimal(goods.goodsprice*(1-goods.goodsdiscount/100),1,0)}>$0.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>

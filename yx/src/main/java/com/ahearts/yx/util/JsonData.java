@@ -1,6 +1,7 @@
 package com.ahearts.yx.util;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class JsonData implements Serializable {
 
