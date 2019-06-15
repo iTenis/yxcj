@@ -11,7 +11,7 @@ import com.ahearts.yx.service.GoodsService;
 import com.ahearts.yx.util.JsonData;
 
 @Controller
-public class UserController {
+public class TestController {
 
 	@Autowired
 	private GoodsService goodsService;
