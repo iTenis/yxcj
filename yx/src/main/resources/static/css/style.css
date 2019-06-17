@@ -242,7 +242,7 @@ textarea.input {
 }
 
 .input-checkbox input[type="checkbox"]+label span:after {
-  content: '✔';
+  content: '鉁�';
   position: absolute;
   top: -2px;
   left: 1px;
