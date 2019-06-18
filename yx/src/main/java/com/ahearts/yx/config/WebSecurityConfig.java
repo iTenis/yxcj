@@ -70,6 +70,7 @@ public class WebSecurityConfig {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/index")
                 .permitAll()
                 // 自动登录
                 .and()

@@ -48,10 +48,14 @@
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> 捐款</a></li>
-						<li><i class="fa fa-user-o"></i>
-						<a href="#" th:if="${userinfo.username}" th:text="${userinfo.username}"> </a>
-						<a href="#" th:unless="${userinfo.username}"  th:text="登录|注册"></a>
-						</li>
+						<li class="dropdown"><i class="fa fa-user-o"></i>
+                        <a th:href="${userinfo==null?'/login':'/logout'}" th:class="${userinfo==null?'':'dropdown-toggle'}" th:data-toggle="${userinfo==null?'':'dropdown'}">[[${userinfo==null?'登录|注册':userinfo.username}]] <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="color: red;min-width:0px;background-color:#000">
+                          <li><a href="#">个人信息</a></li>
+                          <li><a href="#">地址管理</a></li>
+                          <li><a href="/logout">注销</a></li>
+                        </ul>
+                      </li>
 					</ul>
 				</div>
 			</div>
@@ -107,11 +111,11 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>购物车</span>
-										<div class="qty">[[${userinfo.carts.size()}]]</div>
+										<div class="qty" th:text="${userinfo==null?0:userinfo.carts.size()}"></div>
 									</a>
 									<div class="cart-dropdown">
 										<div class="cart-list">
-											<div class="product-widget" th:each="carts:${userinfo.carts}">
+											<div class="product-widget" th:each="carts:${userinfo?.carts}">
 												<div class="product-img">
 													<img th:src="@{${carts.goods.goodscover}}" alt="">
 												</div>
@@ -123,7 +127,7 @@
 											</div>
 										</div>
 										<div class="cart-summary">
-											<small>选中[[${userinfo.carts.size()}]] 件商品</small>
+											<small>选中[[${userinfo==null?0:userinfo.carts.size()}]] 件商品</small>
 											<h5>总计: ￥[[${cartsum}]]</h5>
 										</div>
 										<div class="cart-btns">
