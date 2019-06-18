@@ -4,6 +4,7 @@
 $(function() {
 //	getPageNext();
 	timecountdown();
+	navclick();
 });
 
 function timecountdown(){
@@ -22,6 +23,26 @@ function timecountdown(){
 	$("#tmins").html(parseInt(min));
 	$("#tsecs").html(parseInt(afterMin));
 	var t1 = window.setInterval(timecountdown,1000);
+}
+
+function navclick(){
+	var reurl = window.location.href;
+//	console.log(reurl.split("/")[3]);
+	if(reurl.split("/")[3] == 'product') {
+		$('#nav_cate li:eq(2)').addClass('active')
+	}
+	switch (reurl.split("/")[3]) {
+		case 'services':
+		$('#nav_cate li:eq(1)').addClass('active').siblings().removeClass("active");
+		break;
+		case 'product':
+			$('#nav_cate li:eq(2)').addClass('active').siblings().removeClass("active");
+			break;
+		default:
+			break;
+	}
+	
+	
 }
 
 //function getPageNext(){

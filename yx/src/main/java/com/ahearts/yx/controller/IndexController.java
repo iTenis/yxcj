@@ -1,7 +1,10 @@
 package com.ahearts.yx.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +18,11 @@ public class IndexController {
 	private GoodsService goodsService;
 	
 	@GetMapping("/index")
-	public String Index(Model model) {
+	public String Index(Model model,HttpSession session) {
+		SecurityContext securityContext = (SecurityContext) session.getAttribute("SPRING_SECURITY_CONTEXT");
+		if(securityContext != null)
+			System.out.println("++++++++++++++++++++++++++++++"+securityContext.getAuthentication().getName());
+		System.out.println("++++++++++++++++++++++++++++++");
 		model.addAttribute("goodshot", goodsService.getGoodsHotTopN(10));
 		model.addAttribute("goodstj", goodsService.getGoodsTopN(10));
 		return "index";

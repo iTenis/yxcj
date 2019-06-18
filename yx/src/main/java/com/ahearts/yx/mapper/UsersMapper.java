@@ -42,4 +42,17 @@ public interface UsersMapper {
 		@Result(column ="id",property = "carts",many = @Many(select="com.ahearts.yx.mapper.CartsMapper.getByUserId")),
 	})
 	public List<Users> getAllUser();
+	
+	@Select("SELECT * FROM users WHERE user_name = #{username}")
+	@Results({
+		@Result(id = true,column ="id",property = "id"),
+		@Result(column ="user_name",property = "username"),
+		@Result(column ="user_passwd",property = "userpasswd"),
+		@Result(column ="user_email",property = "useremail"),
+		@Result(column ="user_phone",property = "userphone"),
+		@Result(column ="user_level",property = "userlevel"),
+		@Result(column ="user_brith",property = "userbrith"),
+		@Result(column ="id",property = "carts",many = @Many(select="com.ahearts.yx.mapper.CartsMapper.getByUserId")),
+	})
+	public List<Users> getUserByName(String username);
 }

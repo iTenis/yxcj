@@ -1,5 +1,7 @@
 package com.ahearts.yx.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,11 @@ public class UsersServiceImpl implements UsersService{
 	@Override
 	public Users getUserById(int id) {
 		return usersMapper.getUserById(id);
+	}
+
+	@Override
+	public List<Users> getUserByName(String username) {
+		return usersMapper.getUserByName(username);
 	}
 	
 	
