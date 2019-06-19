@@ -45,6 +45,37 @@ function navclick(){
 	
 }
 
+
+function addCarts(id) {
+	var sendData ={id:id};
+	var html_str="";
+	$.ajax({
+		url:'/api/carts/add',
+		type:'post',
+		dataType:'json',
+		contentType:"application/json",
+		async:true,//异步请求
+		cache:false,
+		data:JSON.stringify(sendData),//使用变量sendData
+		//执行成功的回调函数
+		success:function(data) {
+			alert(1);
+			console.log(data);
+//			var currentpage = data.currentpage;
+//			var totalnum =  data.totalnum;
+//			var pagesize = data.pagesize;
+//			html_str = html_str + '<li><a href="#"><i class="fa fa-angle-left"></i></a></li>';
+//			html_str = html_str + '<li class="active">'+data.currentpage+'</li>';
+//			html_str = html_str + '<li><a href="#"><i class="fa fa-angle-right"></i></a></li>';
+//			$("#pagination_index").html(html_str);
+		},
+		//执行失败或错误的回调函数
+		error:function(data) {
+			alert(2);
+			console.log(data);
+		}
+	});
+}
 //function getPageNext(){
 //	//定义变量sendData
 //	var sendData ={id:"1",currentpage:"2",pagesize:"5"};
