@@ -71,7 +71,7 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
+								<a href="/" class="logo">
 									<img src="/img/logo_yxn.png" alt="">
 								</a>
 							</div>
@@ -112,7 +112,7 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>购物车</span>
-										<div class="qty" th:text="${userinfo==null?0:userinfo.carts.size()}"></div>
+										<div class="qty" th:if="${userinfo}" th:text="${userinfo.carts.size()}"></div>
 									</a>
 									<div class="cart-dropdown">
 										<div class="cart-list">
@@ -168,7 +168,7 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul id="nav_cate" class="main-nav nav navbar-nav">
-						<li class="active"><a href="/index">首页</a></li>
+						<li class="active"><a href="/">首页</a></li>
 						<!-- <li><a href="#">学习专区</a></li>
 						<li><a href="#">精油专区</a></li> -->
 						<li class="hidden-xs"><a href="/services">实体专区</a></li>

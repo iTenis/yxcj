@@ -14,7 +14,7 @@ public class IndexController {
 	@Autowired
 	private GoodsService goodsService;
 	
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String Index(Model model) {
 		model.addAttribute("goodshot", goodsService.getGoodsHotTopN(10));
 		model.addAttribute("goodstj", goodsService.getGoodsTopN(10));

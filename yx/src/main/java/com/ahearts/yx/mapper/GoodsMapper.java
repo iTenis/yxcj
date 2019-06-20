@@ -72,10 +72,10 @@ public interface GoodsMapper {
 	@Delete("DELETE FROM goods WHERE id = #{id}")
 	void deleteById(int id);
 	
-	@Select("SELECT count(1) FROM goods")
+	@Select("SELECT count(1) FROM goods WHERE goods_isdelete = 0")
 	int total();
 	
-	@Select("SELECT * FROM goods LIMIT #{currentpage},#{pagesize}")
+	@Select("SELECT * FROM goods WHERE goods_isdelete = 0 ORDER BY goods_goodnum DESC LIMIT #{currentpage},#{pagesize}")
 	@Results({
 		@Result(column = "goods_id",property = "goodsid"),
 		@Result(column = "goods_name",property = "goodsname"),
@@ -99,7 +99,7 @@ public interface GoodsMapper {
 	List<Goods> pageNext(int currentpage , int pagesize);
 	
 	
-	@Select("SELECT * FROM goods where goods_cate_id = #{cateid} ORDER BY goods_updatetime DESC LIMIT #{num}")
+	@Select("SELECT * FROM goods where goods_cate_id = #{cateid} AND goods_isdelete = 0 ORDER BY goods_updatetime DESC LIMIT #{num}")
 	@Results({
 		@Result(column = "goods_id",property = "goodsid"),
 		@Result(column = "goods_name",property = "goodsname"),
@@ -123,7 +123,7 @@ public interface GoodsMapper {
 	List<Goods> getGoodsWithCatesNum(int num , int cateid);
 	
 	
-	@Select("SELECT * FROM goods where goods_istop = 1 LIMIT #{topN}")
+	@Select("SELECT * FROM goods where goods_istop = 1 AND goods_isdelete = 0 LIMIT #{topN}")
 	@Results({
 		@Result(column = "goods_id",property = "goodsid"),
 		@Result(column = "goods_name",property = "goodsname"),
@@ -146,7 +146,7 @@ public interface GoodsMapper {
 	})
 	List<Goods> getGoodsTopN(int topN);
 	
-	@Select("SELECT * FROM goods ORDER BY goods_goodnum LIMIT #{topN}")
+	@Select("SELECT * FROM goods WHERE goods_isdelete = 0  ORDER BY goods_goodnum LIMIT #{topN}")
 	@Results({
 		@Result(column = "goods_id",property = "goodsid"),
 		@Result(column = "goods_name",property = "goodsname"),

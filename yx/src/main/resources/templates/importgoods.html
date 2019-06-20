@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{base.html}">
+<head>
+<meta charset="utf-8">
+<title>iTennis - 首页</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<form method="post" enctype="multipart/form-data" id="form" action="/import">
+			<input type="file" name="filename" /> 
+			<input type="submit" value="提交上传" />
+		</form>
+	</div>
+</body>
+</html>
