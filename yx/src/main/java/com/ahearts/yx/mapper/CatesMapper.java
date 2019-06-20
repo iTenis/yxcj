@@ -27,7 +27,7 @@ public interface CatesMapper {
 	})
 	List<Cates> getAll();
 	
-	@Select("SELECT * FROM cates WHERE cate_id = #{cateid}")
+	@Select("SELECT * FROM cates WHERE cate_id = #{id}")
 	@Results({
 		@Result(column = "cate_id",property = "cateid"),
 		@Result(column = "cate_name",property = "catename"),
@@ -38,6 +38,6 @@ public interface CatesMapper {
 	@Update("UPDATE user SET cate_name=#{catename},cate_desc=#{catedesc} WHERE cate_id = #{cateid}")
 	void update(Cates cate);
 	
-	@Delete("DELETE FROM cates WHERE cate_id = #{cateid}")
+	@Delete("DELETE FROM cates WHERE cate_id = #{id}")
 	void delete(int id);
 }

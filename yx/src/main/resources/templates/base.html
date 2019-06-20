@@ -9,7 +9,6 @@
 		<title>iTennis - 公共页</title>
 
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-		
  		<!-- Google font -->
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -109,7 +108,7 @@
 								<!-- /Wishlist -->
 
 								<!-- Cart -->
-								<div class="dropdown">
+								<div class="dropdown"  id="cartlists">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>购物车</span>
@@ -125,7 +124,7 @@
 													<h3 class="product-name"><a href="#">[[${carts.goods.goodsname}]]</a></h3>
 													<h4 class="product-price"><span class="qty">[[${carts.cartnum}]]x</span>￥[[${carts.goods.goodsprice}]]</h4>
 												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
+												<button class="delete"  th:onclick="'javascript:deleteCarts('+${carts.cartuserid}+','+${carts.cartgoodsid}+')'"><i class="fa fa-close"></i></button>
 											</div>
 										</div>
 										<div class="cart-summary">
@@ -134,7 +133,7 @@
 										</div>
 										<div class="cart-btns">
 											<a href="#">查看购物车</a>
-											<a href="#">结  算  <i class="fa fa-arrow-circle-right"></i></a>
+											<a href="/checkout">结  算  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>
@@ -161,6 +160,7 @@
 		<!-- /HEADER -->
 
 		<!-- NAVIGATION -->
+		
 		<nav id="navigation">
 			<!-- container -->
 			<div class="container">

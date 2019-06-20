@@ -56,12 +56,12 @@
 								<div class="qty-label">
 									数量
 									<div class="input-number">
-										<input type="number">
+										<input type="number" id="goods_inputnum" value="1">
 										<span class="qty-up">+</span>
 										<span class="qty-down">-</span>
 									</div>
 								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> 加入购物车</button>
+								<button class="add-to-cart-btn" th:onclick="'javascript:addCarts('+${goods.id}+')'"><i class="fa fa-shopping-cart"></i> 加入购物车</button>
 							</div>
 
 							<ul class="product-btns">

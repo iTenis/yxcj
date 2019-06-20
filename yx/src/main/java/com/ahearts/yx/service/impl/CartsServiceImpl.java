@@ -31,4 +31,14 @@ public class CartsServiceImpl implements CartsService{
 		return cartsMapper.cartSumByUser(id);
 	}
 
+	@Override
+	public List<Carts> getByCartsAgg(int id) {
+		return cartsMapper.getByCartsAgg(id);
+	}
+
+	@Override
+	public void delete(int uid, int gid) {
+		cartsMapper.delete(uid, gid);
+	}
+
 }

@@ -1,9 +1,6 @@
 package com.ahearts.yx.domain;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
-
-import lombok.Data;
 
 
 public class Carts {

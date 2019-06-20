@@ -2,7 +2,7 @@
 <html lang="en"   xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{base.html}">
 	<head>
 		<meta charset="utf-8">
-		<title>iTennis - 用户登陆</title>
+		<title>iTennis - 用户注册</title>
 		<style>
     .login-container {
         margin: 50px;
@@ -14,7 +14,7 @@
         width: 50%;
         text-align: center;
         box-shadow: 1px 1px 10px #888888;
-        height: 300px;
+        height: 400px;
         padding: 5px;
     }
  
@@ -54,15 +54,21 @@
  
 <div class="login-container">
     <div class="form-container">
-        <p class="title">用户登录</p>
-        <form name="loginForm" method="post" th:action="${loginProcessUrl}">
-            <input type="text" name="username" placeholder="用户名"/>
+        <p class="title">用户注册</p>
+        <form name="RegisterForm" method="post" action="/api/user/add">
+            <input type="text" name="username" id="register_username" placeholder="用户名"/>
             <br>
             <input type="password" name="password" placeholder="密码"/>
             <br>
-            <button type="submit" class="btn">登 &nbsp;&nbsp; 录</button>
+            <input type="email" name="email" placeholder="邮箱"/>
+            <br>
+            <input type="text" name="mobilePhone" id="mobilePhone" placeholder="手机号码"/>
+            <br>
+            <input type="date" name="birthday" placeholder="生日"/>
+            <br>
+            <button type="submit" class="btn">注 &nbsp;&nbsp; 册</button>
             <br><br><br>
-            <a href="/register">没有账户，点击注册？</a>
+            <a href="/login">我有账户，点击登录？</a>
         </form>
         <p style="color: red" th:if="${param.error}">用户名或密码错误</p>
     </div>

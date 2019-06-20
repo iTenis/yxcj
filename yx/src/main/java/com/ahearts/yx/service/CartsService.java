@@ -13,4 +13,8 @@ public interface CartsService {
 	public List<Carts> getByUserId(int id);
 	
 	public BigDecimal cartSumByUser(int id);
+	
+	public List<Carts> getByCartsAgg(int id);
+	
+	void delete(int uid,int gid);
 }

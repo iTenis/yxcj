@@ -1,5 +1,6 @@
 package com.ahearts.yx.domain;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class Users {
 	private String useremail;
 	private String userphone;
 	private int userlevel;
-	private Timestamp userbrith;
+	private Date userbrith;
 	private List<Carts> carts;
 	public int getId() {
 		return id;
@@ -48,10 +49,10 @@ public class Users {
 	public void setUserlevel(int userlevel) {
 		this.userlevel = userlevel;
 	}
-	public Timestamp getUserbrith() {
+	public Date getUserbrith() {
 		return userbrith;
 	}
-	public void setUserbrith(Timestamp userbrith) {
+	public void setUserbrith(Date userbrith) {
 		this.userbrith = userbrith;
 	}
 	public List<Carts> getCarts() {

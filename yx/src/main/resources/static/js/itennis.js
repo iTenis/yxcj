@@ -44,11 +44,13 @@ function navclick(){
 	
 	
 }
-
-
-function addCarts(id) {
-	var sendData ={id:id};
-	var html_str="";
+function addCarts(goodsid) {
+	var cartshtml_head = "";
+	var cartshtml_body = "";
+	var cartshtml_foot = "";
+	var sendData ={};
+	sendData.id = goodsid;
+	sendData.goodsnum = $("#goods_inputnum").val();
 	$.ajax({
 		url:'/api/carts/add',
 		type:'post',
@@ -59,23 +61,104 @@ function addCarts(id) {
 		data:JSON.stringify(sendData),//使用变量sendData
 		//执行成功的回调函数
 		success:function(data) {
-			alert(1);
 			console.log(data);
-//			var currentpage = data.currentpage;
-//			var totalnum =  data.totalnum;
-//			var pagesize = data.pagesize;
-//			html_str = html_str + '<li><a href="#"><i class="fa fa-angle-left"></i></a></li>';
-//			html_str = html_str + '<li class="active">'+data.currentpage+'</li>';
-//			html_str = html_str + '<li><a href="#"><i class="fa fa-angle-right"></i></a></li>';
-//			$("#pagination_index").html(html_str);
+			if(data.code==200){
+				alert("加入购物车成功");
+				window.location.reload();
+			}else{
+				alert(data.msg+"，请刷新重试，谢谢！");
+			}
 		},
 		//执行失败或错误的回调函数
 		error:function(data) {
-			alert(2);
-			console.log(data);
+			alert("请登录重试");
 		}
 	});
 }
+$("#mobilePhone").blur(function () {
+    var str = $(this).val();
+    if (str != "" && str != null) {
+        var re = /^1\d{10}$/;
+        if (!re.test(str)) {
+            $(this).val("");
+            alert("手机号格式不正确");
+            return;
+        }
+    }
+});
+
+
+$("#register_username").bind("input propertychange",function(event){
+    $.ajax({
+		url:'/api/users/getbyname?name='+ $("#register_username").val(),
+		type:'get',
+		dataType:'json',
+		contentType:"application/json",
+		async:true,//异步请求
+		cache:false,
+		//执行成功的回调函数
+		success:function(data) {
+			$("#register_username").css('color',data.data);
+		},
+		//执行失败或错误的回调函数
+		error:function(data) {
+			alert("请登录重试");
+		}
+	});
+    
+});
+
+$(".updown_num").bind("input propertychange",function(event){
+	alert(this.value);
+//    $.ajax({
+//		url:'/api/users/getbyname?name='+ $("#register_username").val(),
+//		type:'get',
+//		dataType:'json',
+//		contentType:"application/json",
+//		async:true,//异步请求
+//		cache:false,
+//		//执行成功的回调函数
+//		success:function(data) {
+//			$("#register_username").css('color',data.data);
+//		},
+//		//执行失败或错误的回调函数
+//		error:function(data) {
+//			alert("请登录重试");
+//		}
+//	});
+    
+});
+
+
+/**
+ * 删除购物车
+ * @param uid
+ * @param gid
+ * @returns
+ */
+function deleteCarts(uid,gid){
+	sendData = {}
+	sendData.uid = uid;
+	sendData.gid = gid;
+	$.ajax({
+		url:'/api/carts/delete',
+		type:'post',
+		dataType:'json',
+		data:JSON.stringify(sendData),
+		contentType:"application/json",
+		async:true,
+		cache:false,
+		success:function(data){
+//			$(this).closest('.order-col').remove()
+//			$(this).parent(".order-col").remove();
+			window.location.reload(); 
+		},
+		error:function(data){
+			alert("请登录重试");
+		}
+	})
+}
+
 //function getPageNext(){
 //	//定义变量sendData
 //	var sendData ={id:"1",currentpage:"2",pagesize:"5"};

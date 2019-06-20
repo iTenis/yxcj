@@ -92,6 +92,7 @@
 									<div class="products-slick" data-nav="#slick-nav-1">
 										<!-- product -->
 										<div class="product" th:each="goods : ${goodshot}">
+										<a th:href="'/product?currentpage=1&pagesize=10&id='+${goods.id}">
 											<div class="product-img">
 												<img th:src="@{${goods.goodscover}}" alt="">
 												<div class="product-label">
@@ -116,6 +117,7 @@
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
+											</a>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn" th:onclick="'javascript:addCarts('+${goods.id}+')'"><i class="fa fa-shopping-cart"></i> 加入购物车</button>
 											</div>
@@ -216,6 +218,7 @@
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
 										<div class="product" th:each="goods : ${goodstj}">
+										<a th:href="'/product?currentpage=1&pagesize=10&id='+${goods.id}">
 											<div class="product-img">
 												<img th:src="@{${goods.goodscover}}" alt="">
 												<div class="product-label">
@@ -240,8 +243,9 @@
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
+											</a>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> 加入购物车</button>
+												<button class="add-to-cart-btn" th:onclick="'javascript:addCarts('+${goods.id}+')'"><i class="fa fa-shopping-cart"></i> 加入购物车</button>
 											</div>
 										</div>
 										<!-- /product -->
