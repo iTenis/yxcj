@@ -289,6 +289,8 @@
 
 					<!-- product -->
 					<div class="col-md-3 col-xs-6"  th:each="goods : ${goodsmore}">
+					
+					<a th:href="'/product?currentpage=1&pagesize=10&id='+${goods.id}">
 						<div class="product">
 											<div class="product-img">
 												<img th:src="@{${goods.goodscover}}" alt="">
@@ -315,10 +317,12 @@
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> 加入购物车</button>
+												<button class="add-to-cart-btn" th:onclick="'javascript:addCarts('+${goods.id}+')'"><i class="fa fa-shopping-cart"></i> 加入购物车</button>
 											</div>
 										</div>
+					</a>
 					</div>
+					
 					<!-- /product -->
 
 				</div>
