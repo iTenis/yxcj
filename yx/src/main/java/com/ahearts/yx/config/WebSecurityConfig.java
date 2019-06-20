@@ -63,7 +63,7 @@ public class WebSecurityConfig {
             public void configure(HttpSecurity httpSecurity) throws Exception {
             	httpSecurity.authorizeRequests()
                 .antMatchers("/index/**", "/images/**","/css/**","/fonts/**","/js/**","/img/**", "/product/**", "/login/**", "/logout/**","/register/**","/api/users/getbyname/**"
-                		,"/api/user/add/**", "/services/**"
+                		,"/api/user/add/**", "/services/**","/"
                 )
                 .permitAll()
                 .anyRequest()

@@ -28,6 +28,7 @@ public class CheckOutController {
 		int id = usersService.getUserByName(securityContext.getAuthentication().getName()).get(0).getId();
 		model.addAttribute("carts", JsonData.buildSuccess(cartsService.getByCartsAgg(id)));
 		model.addAttribute("goodsSum", cartsService.cartSumByUser(id));
+		model.addAttribute("users",usersService.getUserById(id));
 		return "checkout";
 	}
 	
